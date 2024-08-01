@@ -1,0 +1,197 @@
+local ArrayField = loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AArrayfield%20Library"))()
+--Documentation url: https://docs.sirius.menu/community/arrayfield
+
+local Window = ArrayField:CreateWindow({
+        Name = "Frost’s Jujitsu sheninagnes Hub💭",
+        LoadingTitle = "Frost’s Hub 💭",
+        LoadingSubtitle = "by FrostYT",
+        ConfigurationSaving = {
+            Enabled = true,
+            FolderName = nil, -- Create a custom folder for your hub/game
+            FileName = "ArrayField"
+        },
+        Discord = {
+            Enabled = true,
+            Invite = "PcF3FWTGC9", -- The Discord invite code, do not include discord.gg/
+            RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+        KeySystem = true, -- Set this to true to use our key system
+        KeySettings = {
+            Title = "Frost’s Hub 💭",
+            Subtitle = "Key System",
+            Note = "Join the discord For Key (https://discord.gg/PcF3FWTGC9)",
+            FileName = "Frost’s Hub key 🔑 ",
+            SaveKey = True,
+            GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like ArrayField to get the key from
+            Key = {"Key972",'Key972'},
+            Actions = {
+                [1] = {
+                    Text = 'nil',
+                    OnPress = function()
+                    end,
+                }
+            },
+        }
+    })
+    local MainTab = Window:CreateTab("Tab Example", nil) -- Title, Image
+    local MainTab2 = Window:CreateTab("Main 📝") -- Title, Image
+    local MainSection = MainTab:CreateSection("Scripts 🫶",true) -- The 2nd argument is to tell if its only a Title and doesnt contain element
+    MainTab:CreateSpacing(nil,10)
+    local Button = MainTab:CreateButton({
+        Name = "Fe animations Gui👀",
+        Info = {
+            Title = 'Animations 🥶',
+            Description = 'This gives u all of the animations 🫣',
+        },
+        Interact = 'Changable',
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LolnotaKid/Finallyworks/main/Protected.txt"))()
+            print('Pressed')
+        end,
+    })
+    MainTab:CreateSpacing(nil,10)
+local Button = MainTab:CreateButton({
+        Name = "Flash Black👀",
+        Info = {
+            Title = 'Flash Black 😭',
+            Description = 'This Gives u The Flash Black 🫣',
+        },
+        Interact = 'Changable',
+        Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/BUc6QyxB"))()
+        end,
+  })
+
+MainTab:CreateSpacing(nil,10)
+local Button = MainTab:CreateButton({
+        Name = "Camlock👀",
+        Info = {
+            Title = 'Camlock 😭',
+            Description = 'Lock Onto Player 🫣',
+        },
+        Interact = 'Changable',
+        Callback = function()
+loadstring(game:HttpGet("https://pastefy.app/cfMW31sf/raw"))()
+        end,
+  })
+
+MainTab:CreateSpacing(nil,10)
+local Button = MainTab:CreateButton({
+        Name = "Esp👀",
+        Info = {
+            Title = 'Esp 😭',
+            Description = 'Find Players🫣',
+        },
+        Interact = 'Changable',
+        Callback = function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = PlayerGui
+
+-- Create Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 150)
+frame.Position = UDim2.new(0.5, -100, 0.5, -75)
+frame.BackgroundTransparency = 0.5
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+frame.Draggable = true
+frame.Active = true
+frame.Visible = false -- Initially hidden
+frame.Parent = screenGui
+
+-- Create X-Ray Button
+local xrayButton = Instance.new("TextButton")
+xrayButton.Size = UDim2.new(0, 180, 0, 50)
+xrayButton.Position = UDim2.new(0, 10, 0, 25)
+xrayButton.BackgroundColor3 = Color3.new(1, 0, 0)
+xrayButton.Text = "Enable X-Ray"
+xrayButton.Parent = frame
+
+-- Create Disable X-Ray Button
+local disableXrayButton = Instance.new("TextButton")
+disableXrayButton.Size = UDim2.new(0, 180, 0, 50)
+disableXrayButton.Position = UDim2.new(0, 10, 0, 85)
+disableXrayButton.BackgroundColor3 = Color3.new(0, 1, 0)
+disableXrayButton.Text = "Disable X-Ray"
+disableXrayButton.Parent = frame
+
+-- Create Open/Close Button
+local toggleGuiButton = Instance.new("TextButton")
+toggleGuiButton.Size = UDim2.new(0, 100, 0, 50)
+toggleGuiButton.Position = UDim2.new(0, 10, 0, 10)
+toggleGuiButton.BackgroundColor3 = Color3.new(0, 1, 0)
+toggleGuiButton.Text = "Open GUI"
+toggleGuiButton.Parent = screenGui
+
+local highlights = {}
+
+local function highlightPlayers()
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            local character = player.Character
+            if character then
+                local highlight = Instance.new("Highlight")
+                highlight.Adornee = character
+                highlight.FillTransparency = 1
+                highlight.OutlineTransparency = 0
+                highlight.OutlineColor = Color3.new(1, 0, 0)
+                highlight.Parent = character
+                table.insert(highlights, highlight)
+            end
+        end
+    end
+end
+
+local function removeHighlights()
+    for _, highlight in pairs(highlights) do
+        if highlight then
+            highlight:Destroy()
+        end
+    end
+    highlights = {}
+end
+
+local function toggleGui()
+    frame.Visible = not frame.Visible
+    if frame.Visible then
+        toggleGuiButton.Text = "Close GUI"
+    else
+        toggleGuiButton.Text = "Open GUI"
+    end
+end
+
+xrayButton.MouseButton1Click:Connect(function()
+    highlightPlayers()
+    xrayButton.Visible = false
+    disableXrayButton.Visible = true
+end)
+
+disableXrayButton.MouseButton1Click:Connect(function()
+    removeHighlights()
+    xrayButton.Visible = true
+    disableXrayButton.Visible = false
+end)
+
+toggleGuiButton.MouseButton1Click:Connect(toggleGui)
+        end,
+  })
+
+MainTab:CreateSpacing(nil,10)
+local Button = MainTab:CreateButton({
+        Name = "RANDOM COOL GUI👀",
+        Info = {
+            Title = 'Cool Gui 😭',
+            Description = 'Random gui 🫣',
+        },
+        Interact = 'Changable',
+        Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/Jujutsu/main/Shenanigans"))()
+        end,
+  })
